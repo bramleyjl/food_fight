@@ -1,0 +1,37 @@
+body {
+  font-family: "Courier", monospace;
+  background-color: #330000;
+  color: #eee;
+  font-size: 14px;
+}
+
+img {
+  max-width: 230px;
+  max-height: 230px;
+  width: auto;
+  height: auto;
+}
+
+input {
+  font-family: "Courier";
+}
+
+.cards {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.input_container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash {
+  margin: 0 auto;
+  text-align: center;
+}

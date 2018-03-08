@@ -1,23 +1,58 @@
-<form method="POST" action="/login">
-  <div class="container">
-    <span class="title">Existing Users</span>
-    <input type="text" placeholder="Enter your name here" name="name" required>
-    <input type="submit" value="Log In">
+<div class="splash">
+  <h1>FOOD.</h1>
+  <h1>FIGHT.</h1>
+</div>
+
+<div class="input_container">
+  <div class="user_login">
+    <form method="POST" action="/login">
+      <div><input type="text" placeholder="Name" name="name" required></div>
+      <div><input type="submit" alight="bottom" value="Log In"></div>
+    </form>
+    {{#if noStudent}}
+    <p>Sorry, we don't have any student named {{noStudent}} in our records!</p>
+    {{/if}}
   </div>
-</form>
 
-<form method="POST" action="/signup">
-  <div class="container">
-    <span class="title">New Users</span>
-    <input type="text" placeholder="Enter your name here" name="name" required>
-    <input type="submit" value="Sign Up">
+  <div class="user_login">
+    <form method="POST" action="/signup">
+      <div><input type="text" placeholder="Name" name="name" required></div>
+      <div><input type="submit" value="Sign Up"></div>
+    </form>
+    {{#if duplicateStudent}}
+    <p>Sorry, a student with the name {{duplicateStudent}} is already in our records!</p>
+    {{/if}}
   </div>
-</form>
+</div>
 
-{{#if duplicateStudent}}
-<p>Sorry, a student with the name {{duplicateStudent}} is already in our records!</p>
-{{/if}}
+<div class="cards"> 
 
-{{#if noStudent}}
-<p>Sorry, we don't have any student named {{noStudent}} in our records!</p>
-{{/if}}
+  <div class="box">
+    <img src="/images/apples.jpg" alt="apples" style="width:100%">
+    <div class="inner">
+      <h3>Apples</h3>
+    </div>
+  </div>
+
+  <div class="box">
+    <img src="/images/oranges.png" alt="oranges" style="width:100%">
+    <div class="inner">
+      <h3>Oranges</h3>
+    </div>
+  </div>
+
+  <div class="box">
+    <img src="/images/bananas.jpg" alt="bananas" style="width:100%">
+    <div class="inner">
+      <h3>Bananas</h3>
+    </div>
+  </div>
+
+  <div class="box">
+    <img src="/images/pineapples.jpg" alt="pineapples" style="width:100%">
+    <div class="inner">
+      <h3>Pineapples</h3>
+    </div>
+  </div>
+
+</div>

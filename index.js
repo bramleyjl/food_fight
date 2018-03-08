@@ -1,4 +1,5 @@
 var express = require('express');
+var path = require('path');
 var exphbs  = require('express-handlebars');
 var routes = require('./routes/routes.js');
 var config = require( './config/config.json' );
@@ -11,7 +12,7 @@ app.set('view engine', 'handlebars');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-  
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 

@@ -5,8 +5,12 @@ exports.createStudent = function(name) {
     db.query("INSERT INTO `students` SET `name` = ?", [name], 
     function (err, result) {
       if (err) return reject(err);
-      return resolve(result.insertId)
-
+      var newStudentId = result.insertId
+      db.query("INSERT INTO `votes` (`student_id`, `fruit_id`) VALUES (?, 999)", [newStudentId],
+      function (err, result) {
+        if (err) return reject(err);
+        return resolve(newStudentId);
+      })
     });
   });
 }

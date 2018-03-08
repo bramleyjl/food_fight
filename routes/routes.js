@@ -11,4 +11,6 @@ router.post('/signup', index.signup);
 
 router.get('/vote', vote.display);
 
+router.post('/vote', vote.sendVote);
+
 module.exports = router;

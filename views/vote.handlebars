@@ -1,3 +1,28 @@
-{{display.student_name}}
-{{display.fruit_name}}
-<p>TIME TO VOTE</p>
+
+
+<p>Hello, {{display.student_name}}! Your vote: {{display.fruit_name}}.</p>
+<form method="GET" action="/">
+  <button type="submit">Log Out</button>
+</form>
+
+<form method="POST" action="/vote">
+  <input type="hidden" name="student" value={{display.student_id}}>
+  <div class="container">
+    <span class="title">TIME TO VOTE</span>
+    <select name="vote">
+        <option></option>
+        <option value=1>Apple</option>
+        <option value=2>Orange</option>
+        <option value=3>Banana</option>
+        <option value=4>Pineapple</option>
+    <input type="submit" value="Vote">
+  </div>
+</form>
+
+
+<div class="">
+{{#votes}}
+{{total_votes}}
+{{fruit_name}}
+{{/votes}}
+</div>
