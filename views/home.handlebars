@@ -1,0 +1,23 @@
+<form method="POST" action="/login">
+  <div class="container">
+    <span class="title">Existing Users</span>
+    <input type="text" placeholder="Enter your name here" name="name" required>
+    <input type="submit" value="Log In">
+  </div>
+</form>
+
+<form method="POST" action="/signup">
+  <div class="container">
+    <span class="title">New Users</span>
+    <input type="text" placeholder="Enter your name here" name="name" required>
+    <input type="submit" value="Sign Up">
+  </div>
+</form>
+
+{{#if duplicateStudent}}
+<p>Sorry, a student with the name {{duplicateStudent}} is already in our records!</p>
+{{/if}}
+
+{{#if noStudent}}
+<p>Sorry, we don't have any student named {{noStudent}} in our records!</p>
+{{/if}}
