@@ -1,28 +1,53 @@
-
-
-<p>Hello, {{display.student_name}}! Your vote: {{display.fruit_name}}.</p>
-<form method="GET" action="/">
-  <button type="submit">Log Out</button>
-</form>
-
-<form method="POST" action="/vote">
-  <input type="hidden" name="student" value={{display.student_id}}>
-  <div class="container">
-    <span class="title">TIME TO VOTE</span>
-    <select name="vote">
-        <option></option>
-        <option value=1>Apple</option>
-        <option value=2>Orange</option>
-        <option value=3>Banana</option>
-        <option value=4>Pineapple</option>
-    <input type="submit" value="Vote">
+<div class="container">
+  <div class="row">
+    <div class="twelve columns splash">
+      <h1>FOOD. FIGHT.</h1>
+    </div>
   </div>
-</form>
 
+  <div class="row">
+    <div class="four columns">
+      <p>Hello, {{display.student_name}}! Your current vote is: {{display.fruit_name}}.</p>
+    </div>
 
-<div class="">
-{{#votes}}
-{{total_votes}}
-{{fruit_name}}
-{{/votes}}
+    <div class="four columns">
+      <form method="GET" action="/">
+        <button type="submit">Log Out</button>
+      </form>
+    </div>
+
+    <div class="four columns">
+      <form method="POST" action="/vote">
+        <input type="hidden" name="student" value={{display.student_id}}>
+        <label for="vote">Make Your Choice</label>
+        <select name="vote">
+            <option value=999></option>
+            <option value=1>Apple</option>
+            <option value=2>Orange</option>
+            <option value=3>Banana</option>
+            <option value=4>Pineapple</option>
+        <input type="submit" value="Vote">
+      </form>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="twelve columns splash">
+      <h2>Current Standings</h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    
+    {{#votes}}
+    <div class="three columns">
+          <h4>{{fruit_name}}</h4>
+          <div class="u-max-full-width">
+            <img src={{fruit_picture}} alt={{fruit_name}} style="width:100%">
+          </div>
+          <h4>{{total_votes}}</h4>
+    </div>
+    {{/votes}}
+  </div>
+  
 </div>

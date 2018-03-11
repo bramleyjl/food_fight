@@ -54,6 +54,7 @@ exports.tallyVotes = function() {
   return new Promise(function (resolve, reject) {
     db.query("SELECT `fruit_id`, \
       `fruit`.`name` AS `fruit_name`, \
+      `fruit`.`picture` AS `fruit_picture`, \
       COUNT(*) AS `total_votes` \
       FROM `votes` \
       JOIN `fruit` ON `votes`.`fruit_id` = `fruit`.`id` \
