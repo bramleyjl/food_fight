@@ -63,7 +63,7 @@ exports.tallyVotes = function() {
       }
       for (var j = result.length - 1; j >= 0; j--) {
         var votePercent = (result[j].total_votes/voteTotal) * 100
-        result[j].vote_percent = votePercent
+        result[j].vote_percent = votePercent.toFixed(2);
       }
       if (err) return reject(err);
       return resolve(result)
