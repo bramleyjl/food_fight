@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row">
+    <a href="/">
     <div class="twelve columns splash">
-      <h1>FOOD. FIGHT.</h1>
+       <h1>FOOD. FIGHT.</h1>
     </div>
+    </a>
   </div>
 
   <div class="row">
     <div class="four columns">
       <p>Hello, {{display.student_name}}!</p>
       <form method="GET" action="/">
-        <button type="submit">Log Out</button>
+        <button class="button-primary" type="submit">Log Out</button>
       </form>      
     </div>
 
@@ -28,7 +30,7 @@
             <option value=2>Orange</option>
             <option value=3>Banana</option>
             <option value=4>Pineapple</option>
-        <input type="submit" value="Vote">
+        <input class="button-primary" type="submit" value="Vote">
       </form>
     </div>
 
@@ -44,9 +46,10 @@
   <div class="row">
     <div class="six columns tally_info">
         <h4>{{fruit_name}}: {{total_votes}}</h4>
+        <h4>{{vote_percent}}%</h4>
     </div>
     <div class="six columns">
-        <img id="tally_picture" src={{fruit_picture}} alt={{fruit_name}}>
+        <img id="fruit_picture" src={{fruit_picture}} alt={{fruit_name}}>
     </div>
   </div>
   {{/votes}}

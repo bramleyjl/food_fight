@@ -6,10 +6,8 @@ exports.checkVote = function(student, vote) {
     function(err, result) {
       if (err) return reject(err);
       if (result.length === 0 || result[0].fruit_id !== parseInt(vote)) {
-        console.log("different!")
         return resolve(result)
       } else {
-        console.log("the same!")
         return resolve(0)
       }
     });
@@ -17,16 +15,13 @@ exports.checkVote = function(student, vote) {
 }
 
 exports.createVote = function(student, vote) {
-  console.log(student, vote)
   return new Promise(function (resolve, reject) {
     db.query("DELETE FROM `votes` WHERE `student_id` = ?", [student],
     function(err, result) {
       if (err) return reject(err);
-      console.log(result)
       db.query("INSERT INTO `votes` (`student_id`, `fruit_id`) VALUES (?, ?)", [student, vote],
       function(err, result) {
         if (err) return reject(err);
-        console.log(result)
         return resolve(result)
       });
     });
@@ -62,6 +57,14 @@ exports.tallyVotes = function() {
       GROUP BY `fruit_id` \
       ORDER BY `total_votes` DESC",
     function (err, result) {
+      var voteTotal = 0
+      for (var i = result.length - 1; i >= 0; i--) {
+        voteTotal += result[i].total_votes
+      }
+      for (var j = result.length - 1; j >= 0; j--) {
+        var votePercent = (result[j].total_votes/voteTotal) * 100
+        result[j].vote_percent = votePercent
+      }
       if (err) return reject(err);
       return resolve(result)
     });

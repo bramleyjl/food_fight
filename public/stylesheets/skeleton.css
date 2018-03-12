@@ -437,11 +437,15 @@ there.
   text-align: center;
 }
 
+.splash a:link, a:visited, a:hover, a:active {
+  color: #000;
+}
+
 .tally_info {
   text-align: center;
 }
 
-#tally_picture {
+#fruit_picture {
   border-radius: 50%;
   width: 50%;
 }

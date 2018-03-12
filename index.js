@@ -19,7 +19,7 @@ app.use('/', routes);
 app.listen( {
     port: config.port
 }, function () {
-    console.log( `Food fight is listening on port ${config.port}.` );
+    console.log( `Food Fight is listening on port ${config.port}.` );
 } ).on( 'error', function ( err ) {
     if ( err ) {
         console.log( `Couldn't listen on port ${config.port}. (Run as root?)` );
