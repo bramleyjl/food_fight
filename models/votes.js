@@ -38,7 +38,8 @@ exports.displayStudentVote = function(id) {
     db.query("SELECT \
       `votes`.*, \
       `students`.`name` AS `student_name`, \
-      `fruit`.`name` AS `fruit_name` \
+      `fruit`.`name` AS `fruit_name`, \
+      `fruit`.`picture` AS `fruit_picture` \
       FROM `votes` \
       JOIN `students` ON `votes`.`student_id` = `students`.`id` \
       JOIN `fruit` ON `votes`.`fruit_id` = `fruit`.`id` \

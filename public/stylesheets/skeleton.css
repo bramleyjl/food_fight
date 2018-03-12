@@ -436,3 +436,12 @@ there.
 .splash {
   text-align: center;
 }
+
+.tally_info {
+  text-align: center;
+}
+
+#tally_picture {
+  border-radius: 50%;
+  width: 50%;
+}

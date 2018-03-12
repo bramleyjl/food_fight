@@ -7,19 +7,21 @@
 
   <div class="row">
     <div class="four columns">
-      <p>Hello, {{display.student_name}}! Your current vote is: {{display.fruit_name}}.</p>
-    </div>
-
-    <div class="four columns">
+      <p>Hello, {{display.student_name}}!</p>
       <form method="GET" action="/">
         <button type="submit">Log Out</button>
-      </form>
+      </form>      
     </div>
 
     <div class="four columns">
+      <p>Your current vote is:</p>
+      <h5>{{display.fruit_name}}</h5>
+    </div>
+
+    <div class="three columns">
       <form method="POST" action="/vote">
         <input type="hidden" name="student" value={{display.student_id}}>
-        <label for="vote">Make Your Choice</label>
+        <label for="vote"></label>
         <select name="vote">
             <option value=999></option>
             <option value=1>Apple</option>
@@ -29,6 +31,7 @@
         <input type="submit" value="Vote">
       </form>
     </div>
+
   </div>
   
   <div class="row">
@@ -37,17 +40,15 @@
     </div>
   </div>
   
+  {{#votes}}
   <div class="row">
-    
-    {{#votes}}
-    <div class="three columns">
-          <h4>{{fruit_name}}</h4>
-          <div class="u-max-full-width">
-            <img src={{fruit_picture}} alt={{fruit_name}} style="width:100%">
-          </div>
-          <h4>{{total_votes}}</h4>
+    <div class="six columns tally_info">
+        <h4>{{fruit_name}}: {{total_votes}}</h4>
     </div>
-    {{/votes}}
+    <div class="six columns">
+        <img id="tally_picture" src={{fruit_picture}} alt={{fruit_name}}>
+    </div>
   </div>
+  {{/votes}}
   
 </div>
