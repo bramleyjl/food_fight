@@ -9,6 +9,7 @@
   "homepage": "https://github.com/bramleyjl/food_fight#readme",
   "dependencies": {
     "body-parser": "~1.18.2",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
