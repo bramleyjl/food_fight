@@ -9,19 +9,21 @@
 
   <div class="row">
     <div class="four columns">
-      <p>Hello, {{display.student_name}}!</p>
-      <form method="GET" action="/">
-        <button class="button-primary" type="submit">Log Out</button>
-      </form>      
+      <div class="u-pull-right">
+        <p>Hello, {{display.student_name}}!</p>
+        <form method="GET" action="/">
+          <button class="button-primary" type="submit">Log Out</button>
+        </form>
+      </div>
     </div>
 
-    <div class="four columns">
+    <div class="four columns current_vote">
       <p>Your current vote is:</p>
       <h5>{{display.fruit_name}}</h5>
     </div>
 
     <div class="three columns">
-      <form method="POST" action="/vote">
+      <form class="u-pull-left" method="POST" action="/vote">
         <input type="hidden" name="student" value={{display.student_id}}>
         <label for="vote"></label>
         <select name="vote">
@@ -36,22 +38,6 @@
 
   </div>
   
-  <div class="row">
-    <div class="twelve columns splash">
-      <h2>Current Standings</h2>
-    </div>
-  </div>
-  
-  {{#votes}}
-  <div class="row">
-    <div class="six columns tally_info">
-        <h4>{{fruit_name}}: {{total_votes}}</h4>
-        <h4>{{vote_percent}}%</h4>
-    </div>
-    <div class="six columns">
-        <img id="fruit_picture" src={{fruit_picture}} alt={{fruit_name}}>
-    </div>
-  </div>
-  {{/votes}}
+{{> voteTally}}
   
 </div>

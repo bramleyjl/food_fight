@@ -9,72 +9,34 @@
 
   <div class="row">
     <div class="six columns">
-      <form method="POST" action="/login">
-      <div>
-        <input type="text" placeholder="Name" name="name" required>
-        <input class="button-primary" type="submit" alight="bottom" value="Log In">
+      <div class="u-pull-right">
+        <form method="POST" action="/login">
+        <div>
+          <input type="text" placeholder="Name" name="name" required>
+          <input class="button-primary" type="submit" alight="bottom" value="Log In">
+        </div>
+        </form>
+        {{#if noStudent}}
+        <p>Sorry, we don't have any student named {{noStudent}} in our records!</p>
+        {{/if}}
       </div>
-      </form>
-      {{#if noStudent}}
-      <p>Sorry, we don't have any student named {{noStudent}} in our records!</p>
-      {{/if}}
     </div>
 
     <div class="six columns">
-      <form method="POST" action="/signup">
-        <div>
-          <input type="text" placeholder="Name" name="name" required>
-          <input class="button-primary" type="submit" value="Sign Up">
-        </div>
-      </form>
-      {{#if duplicateStudent}}
-      <p>Sorry, a student with the name {{duplicateStudent}} is already in our records!</p>
-      {{/if}}
+      <div class="u-pull-left">
+        <form method="POST" action="/signup">
+          <div>
+            <input type="text" placeholder="Name" name="name" required>
+            <input class="button-primary" type="submit" value="Sign Up">
+          </div>
+        </form>
+        {{#if duplicateStudent}}
+        <p>Sorry, a student with the name {{duplicateStudent}} is already in our records!</p>
+        {{/if}}
+      </div>
     </div>
   </div>
 
-  <div class="row"> 
-    <div class="four columns picture">
-      <h2>Apples</h2>
-      <img id="fruit_picture" src="/images/apples.jpg" alt="apples" style="width:100%">
-    </div>
-
-    <div class="two columns picture_blurb">
-      <div>&nbsp;</div>
-      <h5>Doctors hate this one weird trick!</h5>
-    </div>
-
-    <div class="four columns picture">
-      <h2>Oranges</h2>
-      <img id="fruit_picture" src="/images/oranges.png" alt="oranges" style="width:100%">
-    </div>
-
-    <div class="two columns picture_blurb">
-      <div>&nbsp;</div>
-      <h5>They'll always be your main squeeze.</h5>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="four columns picture">
-      <h2>Bananas</h2>
-      <img id="fruit_picture" src="/images/bananas.jpg" alt="bananas" style="width:100%">
-    </div>
-
-    <div class="two columns picture_blurb">
-      <div>&nbsp;</div>
-      <h5>You'd be bananas not to like 'em.</h5>
-    </div>
-
-    <div class="four columns picture">
-      <h2>Pineapples</h2>
-      <img id="fruit_picture" src="/images/pineapples.jpg" alt="pineapples" style="width:100%">
-    </div>
-
-    <div class="two columns picture_blurb">
-      <div>&nbsp;</div>
-      <h5>Today, your pizza. Tomorrow, the world.</h5>
-    </div>
-  </div>
+{{> voteTally }}
 
 </div>

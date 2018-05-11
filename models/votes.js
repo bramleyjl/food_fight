@@ -57,12 +57,12 @@ exports.tallyVotes = function() {
       GROUP BY `fruit_id` \
       ORDER BY `total_votes` DESC",
     function (err, result) {
-      var voteTotal = 0
+      var allVotes = 0
       for (var i = result.length - 1; i >= 0; i--) {
-        voteTotal += result[i].total_votes
+        allVotes += result[i].total_votes
       }
       for (var j = result.length - 1; j >= 0; j--) {
-        var votePercent = (result[j].total_votes/voteTotal) * 100
+        var votePercent = (result[j].total_votes/allVotes) * 100
         result[j].vote_percent = votePercent.toFixed(2);
       }
       if (err) return reject(err);

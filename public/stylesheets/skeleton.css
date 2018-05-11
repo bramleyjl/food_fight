@@ -431,6 +431,7 @@ there.
   float: none;
   margin-left: 0;
   vertical-align: middle;
+  text-align: center;
 }
 
 .splash {
@@ -445,7 +446,15 @@ there.
   text-align: center;
 }
 
-#fruit_picture {
+.fruit_picture {
   border-radius: 50%;
   width: 50%;
+}
+
+.fruit_row {
+  text-align: center;
+}
+
+.current_vote {
+  text-align: center;
 }

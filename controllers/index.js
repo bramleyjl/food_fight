@@ -1,14 +1,21 @@
 let students = require('../models/students');
+let votes = require('../models/votes');
 
 module.exports.home = function(req, res) {
-   res.render('home')
+  var total_votes = votes.tallyVotes();
+  total_votes.then( function(votes) {
+   res.render('home', {votes: votes});
+  });
 }
 
 module.exports.login = function(req, res) {
   var student = students.lookupStudent(req.body.name);
   student.then( function(studentId) {
     if (studentId.length === 0) {
-      res.render('home', {noStudent: req.body.name});
+      var total_votes = votes.tallyVotes();
+      total_votes.then( function(votes) {
+        res.render('home', {noStudent: req.body.name, votes: votes});
+      });
     } else {
       res.redirect('/vote/?student=' + studentId[0].id);
     }
@@ -24,7 +31,10 @@ module.exports.signup = function(req, res) {
         res.redirect('/vote/?student=' + studentId);
       });
     } else {
-      res.render('home', {duplicateStudent: studentId[0].name});
+      var total_votes = votes.tallyVotes();
+      total_votes.then( function(votes) {
+        res.render('home', {duplicateStudent: studentId[0].name, votes: votes});
+      });
     }
   });
 }
